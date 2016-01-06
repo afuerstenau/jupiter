@@ -3,6 +3,7 @@ class Char:
         self.__name=name
         self.__strength=strength
         self.__dexterity=dexterity
+        assert hitpoints >0
         self.__hitpoints=hitpoints
 
     def name(self):
@@ -23,4 +24,4 @@ class Char:
             raise CharacterDead()
 
 class CharacterDead (Exception):
-    pass 
+    pass

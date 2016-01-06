@@ -21,3 +21,7 @@ class TestChar(unittest.TestCase):
         simple_char = Char(TestChar.name, strength=TestChar.strength, dexterity=TestChar.dexterity, hitpoints=TestChar.hitpoints)
         with self.assertRaises(CharacterDead):
             simple_char.receive_damage(51)
+
+    def test_prevent_create_char_with_no_hitpoints(self):
+        with self.assertRaises(AssertionError):
+            Char(TestChar.name, strength=TestChar.strength, dexterity=TestChar.dexterity, hitpoints=0)
