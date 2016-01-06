@@ -20,8 +20,11 @@ class Char:
 
     def receive_damage(self, damage):
         self.__hitpoints -= damage
-        if self.__hitpoints < 0:
+        if self.__hitpoints <= 0:
             raise CharacterDead()
+
+    def __str__(self):
+        return "<Character name="+self.name()+" strength="+str(self.strength())+" dexterity="+str(self.dexterity())+" hp="+str(self.hitpoints())+">"
 
 class CharacterDead (Exception):
     pass

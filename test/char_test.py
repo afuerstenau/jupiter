@@ -18,10 +18,14 @@ class TestChar(unittest.TestCase):
         self.assertEqual(simple_char.dexterity(), dex)
 
     def test_character_dies(self):
-        simple_char = Char(TestChar.name, strength=TestChar.strength, dexterity=TestChar.dexterity, hitpoints=TestChar.hitpoints)
+        simple_char = Char(TestChar.name, strength=TestChar.strength, dexterity=TestChar.dexterity, hitpoints=50)
         with self.assertRaises(CharacterDead):
-            simple_char.receive_damage(51)
+            simple_char.receive_damage(50)
 
     def test_prevent_create_char_with_no_hitpoints(self):
         with self.assertRaises(AssertionError):
             Char(TestChar.name, strength=TestChar.strength, dexterity=TestChar.dexterity, hitpoints=0)
+
+    def test_str_method(self):
+        char = Char(TestChar.name, strength=TestChar.strength, dexterity=TestChar.dexterity, hitpoints=1)
+        self.assertEqual(str(char), "<Character name="+TestChar.name+" strength="+str(TestChar.strength)+" dexterity="+str(TestChar.dexterity)+" hp=1>")
