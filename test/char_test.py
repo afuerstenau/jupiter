@@ -1,5 +1,5 @@
 import unittest
-from ..src.char import *
+from ..src.char import Char
 
 class TestChar(unittest.TestCase):
     name = "David"
@@ -8,13 +8,13 @@ class TestChar(unittest.TestCase):
     hitpoints = 50
     def test_create_simple_char_with_attributes(self):
         name = "David"
-        dex=9
-        strength=15
+        dex = 9
+        strength = 15
         simple_char = Char(name, strength=strength, dexterity=dex, hitpoints=50)
         self.assertEqual(simple_char.name(), name)
         self.assertEqual(simple_char.strength(), strength)
         self.assertEqual(simple_char.dexterity(), dex)
-        simple_char.__dexterity=15
+        simple_char.__dexterity = 15
         self.assertEqual(simple_char.dexterity(), dex)
 
     def test_character_dies(self):

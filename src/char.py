@@ -1,10 +1,12 @@
+""" The module takes care of Characters and it's corresponding classes """
 class Char:
+    """ The class that represents one character and it's behaviour """
     def __init__(self, name, strength, dexterity, hitpoints):
-        self.__name=name
-        self.__strength=strength
-        self.__dexterity=dexterity
-        assert hitpoints >0
-        self.__hitpoints=hitpoints
+        self.__name = name
+        self.__strength = strength
+        self.__dexterity = dexterity
+        assert hitpoints > 0
+        self.__hitpoints = hitpoints
 
     def name(self):
         return self.__name
@@ -24,7 +26,8 @@ class Char:
             raise CharacterDead()
 
     def __str__(self):
-        return "<Character name="+self.name()+" strength="+str(self.strength())+" dexterity="+str(self.dexterity())+" hp="+str(self.hitpoints())+">"
+        return "<Character name="+self.name()+" strength="+str(self.strength())+" \
+        dexterity="+str(self.dexterity())+" hp="+str(self.hitpoints())+">"
 
-class CharacterDead (Exception):
+class CharacterDead(Exception):
     pass
