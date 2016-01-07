@@ -29,3 +29,18 @@ class TestChar(unittest.TestCase):
     def test_str_method(self):
         char = Char(TestChar.name, strength=TestChar.strength, dexterity=TestChar.dexterity, hitpoints=1)
         self.assertEqual(str(char), "<Character name="+TestChar.name+" strength="+str(TestChar.strength)+" dexterity="+str(TestChar.dexterity)+" hp=1>")
+
+    def test_calculate_and_get_attack_power(self):
+        char = self.testchar
+        for _ in range(10):
+            attack_power = char.calculate_and_get_attack_power()
+            print("attack power:", attack_power)
+            self.assertTrue(0 <= attack_power < 19)
+
+    def test_calculate_and_get_defending_power(self):
+        char = self.testchar
+        for _ in range(10):
+            defending_power = char.calculate_and_get_defending_power()
+            self.assertTrue(isinstance(defending_power, int))
+            print("defending power:", defending_power)
+            self.assertTrue(0 <= defending_power <= 9)
