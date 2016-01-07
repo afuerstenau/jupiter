@@ -26,8 +26,7 @@ class Char:
             raise CharacterDead()
 
     def __str__(self):
-        return "<Character name="+self.name()+" strength="+str(self.strength())+" \
-        dexterity="+str(self.dexterity())+" hp="+str(self.hitpoints())+">"
+        return "<Character name="+self.name()+" strength="+str(self.strength())+" dexterity="+str(self.dexterity())+" hp="+str(self.hitpoints())+">"
 
 class CharacterDead(Exception):
     pass

@@ -1,5 +1,6 @@
 import unittest
-from ..src.char import *
+from ..src.char import Char
+from ..src.char import CharacterDead
 from ..src.combat import Combat
 
 class TestFight(unittest.TestCase):
@@ -26,8 +27,8 @@ class TestFight(unittest.TestCase):
         self.assertTrue((fighter1.hitpoints() <= 0) != (fighter2.hitpoints() <= 0))
 
     def test_prevent_fight_with_no_hitpoints(self):
-        fighter1=TestFight.fighter1
-        fighter2=TestFight.fighter2
+        fighter1 = TestFight.fighter1
+        fighter2 = TestFight.fighter2
         print("fighter1", fighter1)
         print("fighter2", fighter2)
         try:
@@ -36,4 +37,4 @@ class TestFight(unittest.TestCase):
             print("fighter1", fighter1)
             print("fighter2", fighter2)
             with self.assertRaises(AssertionError):
-                combat = Combat(fighter1, fighter2)
+                Combat(fighter1, fighter2)

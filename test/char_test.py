@@ -1,24 +1,24 @@
 import unittest
 from ..src.char import Char
+from ..src.char import CharacterDead
 
 class TestChar(unittest.TestCase):
+
     name = "David"
     strength = 18
     dexterity = 9
     hitpoints = 50
+    testchar = Char(name, strength=strength, dexterity=dexterity, hitpoints=hitpoints)
     def test_create_simple_char_with_attributes(self):
-        name = "David"
-        dex = 9
-        strength = 15
-        simple_char = Char(name, strength=strength, dexterity=dex, hitpoints=50)
-        self.assertEqual(simple_char.name(), name)
-        self.assertEqual(simple_char.strength(), strength)
-        self.assertEqual(simple_char.dexterity(), dex)
+        simple_char = self.testchar
+        self.assertEqual(simple_char.name(), self.name)
+        self.assertEqual(simple_char.strength(), self.strength)
+        self.assertEqual(simple_char.dexterity(), self.dexterity)
         simple_char.__dexterity = 15
-        self.assertEqual(simple_char.dexterity(), dex)
+        self.assertEqual(simple_char.dexterity(), self.dexterity)
 
     def test_character_dies(self):
-        simple_char = Char(TestChar.name, strength=TestChar.strength, dexterity=TestChar.dexterity, hitpoints=50)
+        simple_char = self.testchar
         with self.assertRaises(CharacterDead):
             simple_char.receive_damage(50)
 
