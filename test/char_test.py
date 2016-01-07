@@ -53,7 +53,7 @@ class TestChar(unittest.TestCase):
         char = self.create_testchar()
         try:
             char.receive_damage(self.hitpoints)
-        except Exception as e:
+        except Exception:
             pass
         self.assertTrue(char.is_dead())
 

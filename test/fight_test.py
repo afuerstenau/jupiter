@@ -9,7 +9,7 @@ class TestFight(unittest.TestCase):
 
     def test_simple_fight_until_one_fighter_wins(self):
         fighter1 = Char("David", strength=15, dexterity=9, hitpoints=100)
-        fighter2 = Char("Alex", strength=15, dexterity=9, hitpoints=100)
+        fighter2 = Char("Mika", strength=15, dexterity=9, hitpoints=100)
 
         combat = Combat(fighter1, fighter2)
         with self.assertRaises(CharacterDead):
