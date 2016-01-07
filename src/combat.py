@@ -1,8 +1,8 @@
 
 class Combat:
     def __init__(self, fighter1, fighter2):
-        assert fighter1.hitpoints() > 0
-        assert fighter2.hitpoints() > 0
+        assert fighter1.is_alive()
+        assert fighter2.is_alive()
         self.__fighter1 = fighter1
         self.__fighter2 = fighter2
 

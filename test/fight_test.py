@@ -7,15 +7,6 @@ class TestFight(unittest.TestCase):
     fighter1 = Char("Alex", strength=10, dexterity=10, hitpoints=10)
     fighter2 = Char("David", strength=10, dexterity=10, hitpoints=10)
 
-    def test_simple_fight_one_round(self):
-        fighter1 = Char("David", strength=15, dexterity=9, hitpoints=100)
-        fighter2 = Char("Alex", strength=15, dexterity=9, hitpoints=100)
-
-        combat = Combat(fighter1, fighter2)
-        combat.fight()
-
-        self.assertTrue(fighter2.hitpoints() <= 100)
-
     def test_simple_fight_until_one_fighter_wins(self):
         fighter1 = Char("David", strength=15, dexterity=9, hitpoints=100)
         fighter2 = Char("Alex", strength=15, dexterity=9, hitpoints=100)
@@ -24,7 +15,7 @@ class TestFight(unittest.TestCase):
         with self.assertRaises(CharacterDead):
             while True:
                 combat.fight()
-        self.assertTrue((fighter1.hitpoints() <= 0) != (fighter2.hitpoints() <= 0))
+        self.assertTrue(fighter1.is_dead() != fighter2.is_dead())
 
     def test_prevent_fight_with_no_hitpoints(self):
         fighter1 = TestFight.fighter1

@@ -22,7 +22,7 @@ class TestChar(unittest.TestCase):
         with self.assertRaises(CharacterDead):
             simple_char.receive_damage(50)
 
-    def test_prevent_create_char_with_no_hitpoints(self):
+    def test_prevent_create_dead_char(self):
         with self.assertRaises(AssertionError):
             Char(TestChar.name, strength=TestChar.strength, dexterity=TestChar.dexterity, hitpoints=0)
 
@@ -44,3 +44,19 @@ class TestChar(unittest.TestCase):
             self.assertTrue(isinstance(defending_power, int))
             print("defending power:", defending_power)
             self.assertTrue(0 <= defending_power <= 9)
+
+    def test_is_alive(self):
+        char = self.create_testchar()
+        self.assertTrue(char.is_alive())
+
+    def test_is_dead(self):
+        char = self.create_testchar()
+        try:
+            char.receive_damage(self.hitpoints)
+        except Exception as e:
+            pass
+        self.assertTrue(char.is_dead())
+
+    def create_testchar(self):
+        return Char(self.name, strength=self.strength, dexterity=self.dexterity, \
+        hitpoints=self.hitpoints)

@@ -19,16 +19,20 @@ class Char:
     def dexterity(self):
         return self.__dexterity
 
-    def hitpoints(self):
-        return self.__hitpoints
-
     def receive_damage(self, damage):
         self.__hitpoints -= damage
         if self.__hitpoints <= 0:
             raise CharacterDead()
 
+    def is_alive(self):
+        print("is_alive", self.__hitpoints, (self.__hitpoints > 0))
+        return self.__hitpoints > 0
+
+    def is_dead(self):
+        return self.__hitpoints <= 0
+
     def __str__(self):
-        return "<Character name="+self.name()+" strength="+str(self.strength())+" dexterity="+str(self.dexterity())+" hp="+str(self.hitpoints())+">"
+        return "<Character name="+self.name()+" strength="+str(self.strength())+" dexterity="+str(self.dexterity())+" hp="+str(self.__hitpoints)+">"
 
     def calculate_and_get_attack_power(self):
         return random.randint(0, self.strength())
