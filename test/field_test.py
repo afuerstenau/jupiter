@@ -1,6 +1,6 @@
 import unittest
 
-from ..src.field import Field
+from ..src.model.field import Field
 
 class TestField(unittest.TestCase):
 

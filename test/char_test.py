@@ -1,6 +1,6 @@
 import unittest
-from ..src.char import Char
-from ..src.char import CharacterDead
+from ..src.model.char import Char
+from ..src.model.char import CharacterDead
 
 class TestChar(unittest.TestCase):
 

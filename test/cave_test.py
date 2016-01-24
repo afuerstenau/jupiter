@@ -1,7 +1,7 @@
 import unittest
-from ..src.char import Char
-from ..src.cave import Cave
-from ..src.cave import Movement_Not_Possible
+from ..src.model.char import Char
+from ..src.model.cave import Cave
+from ..src.model.cave import Movement_Not_Possible
 
 class TestCave(unittest.TestCase):
     name = "David"

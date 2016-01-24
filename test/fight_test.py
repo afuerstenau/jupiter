@@ -1,7 +1,7 @@
 import unittest
-from ..src.char import Char
-from ..src.char import CharacterDead
-from ..src.combat import Combat
+from ..src.model.char import Char
+from ..src.model.char import CharacterDead
+from ..src.model.combat import Combat
 
 class TestFight(unittest.TestCase):
     fighter1 = Char("Alex", strength=10, dexterity=10, hitpoints=10)
