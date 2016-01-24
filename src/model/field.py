@@ -6,6 +6,7 @@ class Field:
         self._east = east
         self._west = west
         self._has_char = has_char
+        self._monster = ""
 
     def is_move_south_possible(self):
         return self._south
@@ -24,6 +25,12 @@ class Field:
 
     def set_has_char(self, has_char):
         self._has_char = has_char
+
+    def set_has_monster(self, monster):
+        self._monster = monster
+
+    def get_monster(self):
+        return self._monster
 
     def __str__(self):
         directions = "north," if self._north else ""

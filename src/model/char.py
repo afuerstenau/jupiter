@@ -3,6 +3,9 @@ import random
 
 class Char:
     """ The class that represents one character and it's behaviour """
+
+    Goblin = "goblin"
+
     def __init__(self, name, strength, dexterity, hitpoints):
         self.__name = name
         self.__strength = strength

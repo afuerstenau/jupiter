@@ -1,4 +1,5 @@
 from .field import Field
+from .char import Char
 
 class Cave:
 
@@ -12,6 +13,8 @@ class Cave:
         self._current_party_field_y = 0
         self._current_party_field = self._map[0][0]
         self._current_party_field.set_has_char(True)
+
+        self._map[1][1].set_has_monster(Char.Goblin)
 
     def move_party(self):
         self._current_party_field.set_has_char(False)
